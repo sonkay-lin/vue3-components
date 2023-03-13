@@ -1,0 +1,51 @@
+@use 'mixins/mixins.scss' as *;
+
+@include b(tree) {
+  display: inline-block;
+  width: 100%;
+}
+
+@include b('tree-node') {
+  padding: 5px 0;
+  font-size: 16px;
+  &:hover {
+    background: rgba(178, 144, 223, 0.1);
+  }
+  &.is-disabled {
+    color: #aaa;
+    background: rgba($color: #ccc, $alpha: 0.3);
+    cursor: not-allowed;
+    .l-tree-node__content {
+      cursor: not-allowed;
+    }
+  }
+  @include e('content') {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    cursor: pointer;
+  }
+  @include e('expand-icon') {
+    margin-left: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in;
+    &.expanded {
+      transform: rotate(90deg);
+    }
+    &.is-leaf {
+      fill: transparent;
+      cursor: default;
+    }
+    &.is-disabled {
+      opacity: 0.4;
+    }
+  }
+  @include e(label) {
+    white-space: nowrap;
+  }
+  @include when(selected) {
+    background: rgba(64, 158, 255, 0.3);
+  }
+}

@@ -1,0 +1,83 @@
+@use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
+
+@include b(button) {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: #fafafa;
+  border-radius: 5px;
+  user-select: none;
+  min-height: 36px;
+  line-height: 1;
+  vertical-align: middle;
+  padding: 0 20px;
+  & + & {
+    margin-left: 12px;
+  }
+  span + .l-icon,
+  .l-icon + span {
+    margin-left: 6px;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.8;
+  }
+  @include m(medium) {
+    padding: 0 20px;
+  }
+  @include m(small) {
+    padding: 0 15px;
+    min-height: 32px;
+  }
+  @include m(large) {
+    padding: 0 25px;
+    min-height: 40px;
+  }
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+  @include when(loading) {
+    &,
+    &:hover,
+    &:focus {
+      cursor: default;
+      opacity: 0.8;
+    }
+  }
+  @include when(round) {
+    border-radius: 18px;
+  }
+  @include m(default) {
+    @include button-variant($color-black, $color-white, $color-border-color);
+    border-width: 1px;
+    border-style: solid;
+    &:hover {
+      border-color: $color-border-color-hover;
+      color: $color-border-color-hover;
+    }
+  }
+  @include m(primary) {
+    @include button-variant($color-white, $color-primary, $color-primary);
+  }
+  @include m(success) {
+    @include button-variant($color-white, $color-success, $color-success);
+  }
+  @include m(warning) {
+    @include button-variant($color-white, $color-warning, $color-warning);
+  }
+  @include m(danger) {
+    @include button-variant($color-white, $color-danger, $color-danger);
+  }
+  @include m(info) {
+    @include button-variant($color-white, $color-info, $color-info);
+  }
+}

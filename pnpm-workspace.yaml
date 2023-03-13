@@ -1,0 +1,4 @@
+package:
+  - docs # 存放组件文档
+  - "packages/**" # 指定packages下所有的包都是包
+  - play # 存放组件测试代码

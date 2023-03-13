@@ -1,0 +1,15 @@
+@use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
+
+@include b(form) {
+  @include m(label-left) {
+    .#{$namespace}-form-item__label {
+      justify-content: flex-start;
+    }
+  }
+  @include m(label-right) {
+    .#{$namespace}-form-item__label {
+      justify-content: flex-end;
+    }
+  }
+}

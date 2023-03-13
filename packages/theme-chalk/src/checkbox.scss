@@ -1,0 +1,10 @@
+@use 'mixins/mixins.scss' as *;
+@include b(checkbox) {
+  display: flex;
+  align-items: center;
+  @include when(checked) {
+  }
+  input[type='checkbox']:disabled {
+    cursor: not-allowed;
+  }
+}

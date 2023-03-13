@@ -1,0 +1,92 @@
+@use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
+
+@include b(input) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  @include when(disabled) {
+    .#{$namespace}-input__wrapper {
+      background-color: $disabled-background-color;
+      &:hover {
+        border-color: $color-border-color;
+      }
+    }
+    * {
+      cursor: not-allowed;
+      user-select: none;
+    }
+  }
+  @include e(wrapper) {
+    box-sizing: border-box;
+    display: inline-flex;
+    border: 1px solid $color-border-color;
+    flex: 1;
+    align-items: center;
+    position: relative;
+    vertical-align: middle;
+    padding: 0 6px;
+    &:hover {
+      border-color: $color-border-color-hover;
+    }
+    @include when(focus) {
+      border-color: $color-primary;
+    }
+    .#{$namespace}-icon {
+      cursor: pointer;
+      margin-left: 6px;
+    }
+  }
+  @include e(suffix) {
+    display: inline-flex;
+    margin-right: 5px;
+  }
+  @include e(prefix) {
+    display: inline-flex;
+    margin-left: 5px;
+    .#{$namespace}-icon {
+      margin-left: 0;
+    }
+  }
+  @include e(inner) {
+    display: inline-flex;
+    outline: none;
+    border: none;
+    background: none;
+    appearance: none;
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+  }
+}
+@include b(input-group) {
+  width: 100%;
+  display: flex;
+  @include e(append) {
+    display: inline-flex;
+    padding: 0 10px;
+    line-height: 32px;
+    vertical-align: middle;
+    margin-left: -1px;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 0 0 1px $color-border-color inset;
+  }
+  @include e(prepend) {
+    display: inline-flex;
+    padding: 0 10px;
+    line-height: 32px;
+    vertical-align: middle;
+    margin-right: -1px;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0 0 1px $color-border-color inset;
+  }
+}
