@@ -1,5 +1,65 @@
+@use 'sass:map';
+
 @use 'config' as *;
 @forward 'config';
+@use '../common/var.scss' as *;
+//
+// $breakpoint-max: 1680px !default;
+// $breakpoint-xxl: 1440px !default;
+// $breakpoint-xlg: 1280px !default;
+// $breakpoint-lg: 960px !default;
+// $breakpoint-md: 768px !default;
+// $breakpoint-sm: 480px !default;
+// //
+// $breakpoints: (
+//   'sm': #{$breakpoint-sm},
+//   'md': #{$breakpoint-md},
+//   'lg': #{$breakpoint-lg},
+//   'xlg': #{$breakpoint-xlg},
+//   'xxl': #{$breakpoint-xxl},
+//   'max': #{$breakpoint-max}
+// ) !default;
+
+// @mixin res($key, $map: $breakpoints) {
+//   // loop breakpoint Map, return if present
+//   @debug '打印  #{$key}';
+//   @if map-has-key($map, $key) {
+//     @media only screen and #{unquote(map-get($map, $key))} {
+//       @content;
+//     }
+//   } @else {
+//     @warn "Undefined points: `#{$map}`";
+//   }
+// }
+
+@mixin res($key) {
+  // loop breakpoint Map, return if present
+  @if $key == 'max' {
+    @media only screen and (min-width: 1680px) {
+      @content;
+    }
+  } @else if $key == 'xxl' {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  } @else if $key == 'xlg' {
+    @media only screen and (min-width: 1280px) {
+      @content;
+    }
+  } @else if $key == 'lg' {
+    @media only screen and (min-width: 960px) {
+      @content;
+    }
+  } @else if $key == 'md' {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $key == 'sm' {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+}
 
 // .l-button
 @mixin b($block) {

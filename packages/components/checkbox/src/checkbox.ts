@@ -1,8 +1,10 @@
 import { ExtractPropTypes, PropType } from 'vue'
 
+export type CheckboxValueType = boolean | string | number
+
 export const checkboxProps = {
   modelValue: {
-    type: [Boolean, String, Number] as PropType<boolean | string | number>
+    type: [Boolean, String, Number] as PropType<CheckboxValueType>
   },
   disabled: Boolean,
   indeterminate: Boolean,

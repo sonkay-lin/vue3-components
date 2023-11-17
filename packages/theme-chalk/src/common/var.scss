@@ -1,3 +1,4 @@
+@use 'sass:string';
 $color-primary: #409eff;
 $color-white: #fff;
 $color-black: #000;
@@ -10,3 +11,5 @@ $color-border-color: #dcdfe6;
 $color-border-color-hover: #c0c4cc;
 
 $disabled-background-color: #f5f7fa;
+
+$color-active: rgb(64, 158, 255);

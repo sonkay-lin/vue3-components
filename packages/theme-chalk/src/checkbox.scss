@@ -1,8 +1,13 @@
 @use 'mixins/mixins.scss' as *;
+@use 'common/var.scss' as *;
 @include b(checkbox) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  & + & {
+    margin-left: 20px;
+  }
   @include when(checked) {
+    color: $color-active;
   }
   input[type='checkbox']:disabled {
     cursor: not-allowed;

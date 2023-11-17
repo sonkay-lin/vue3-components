@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@lsk-ui/components": "workspace:*",
+    "@lsk-ui/constants": "workspace:^1.0.0",
     "@lsk-ui/theme-chalk": "workspace:*",
     "@lsk-ui/utils": "workspace:*",
     "@vicons/ionicons5": "^0.12.0",

@@ -35,6 +35,16 @@
         type="password"
       ></l-input>
     </l-form-item>
+    <l-form-item
+      prop="sex"
+      label="性别:"
+      :rules="[
+        { required: true, message: '请输入密码', trigger: 'blur' },
+        { min: 6, max: 12, message: '密码6-10位', trigger: ['change', 'blur'] }
+      ]"
+    >
+      <l-checkbox-group v-model="state.sex"></l-checkbox-group>
+    </l-form-item>
     <l-button @click="validateForm">提交</l-button>
   </l-form>
 </template>
@@ -46,7 +56,8 @@ import { reactive, ref } from 'vue'
 const formRef = ref<InstanceType<typeof Form>>()
 const state = reactive({
   userName: '',
-  password: ''
+  password: '',
+  sex: ['男']
 })
 
 function validateForm() {
